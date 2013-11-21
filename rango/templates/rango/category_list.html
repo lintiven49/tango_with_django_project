@@ -1,0 +1,13 @@
+<h2>Top Five Categories</h2>
+{% if categories %}
+    <ul>
+        {% for category in categories %}
+            <li><a href="{% url 'rango:category' category.url %}">{{ category.name }}</a>
+                - ({{ category.likes }} like{{ category.likes|pluralize }})
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <strong>No categories at present.</strong>
+{% endif %}
+{% include 'rango/search.html' %}
